@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PokEvaluator
@@ -20,30 +19,16 @@ namespace PokEvaluator
     /// </summary>
     public partial class MainWindow : Window
     {
-        private PokemonViewModel viewModel = new PokemonViewModel();
-
         public MainWindow()
         {
             InitializeComponent();
+            AddHandlers();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void AddHandlers()
         {
-            cbxPokemons.ItemsSource = Pokedex.Pokemons;          
-            cbxPokemons.SelectionChanged += CbxPokemons_SelectionChanged;
-            cbxPokemons.SelectedIndex = 0;
-        }
-
-        void CbxPokemons_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Pokemon selectedPokemon = cbxPokemons.SelectedItem as Pokemon;
-            if (selectedPokemon == null)
-                return;
-
-            DataContext = new PokemonViewModel(selectedPokemon);
-
-
-           
+            btnAccessTypes.Click += (_, __) => Main.Content = new TypesPage();
+            btnAccessTeam.Click += (_, __) => Main.Content = new TeamPage();
         }
     }
 }

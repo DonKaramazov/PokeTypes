@@ -6,6 +6,7 @@
 
     <Style TargetType="ItemsControl" x:Key="IC_ELEMENTS">
         <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Margin" Value="5,0,5,0"/>
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -17,7 +18,7 @@
             <Setter.Value>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding Path=. , Converter={StaticResource myEnumToImageConverter}}" Margin="2,5,2,5"/>
+                        <Image Source="{Binding Path=. , Converter={StaticResource myEnumToImageConverter}}" Margin="2,5,2,5" MaxWidth="60" MaxHeight="40"/>
                     </StackPanel>
                 </DataTemplate>
             </Setter.Value>
