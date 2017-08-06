@@ -54,9 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Team.cs" />
     <Compile Include="TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeamViewModel.cs" />
     <Compile Include="TypesPage.xaml.cs">
       <DependentUpon>TypesPage.xaml</DependentUpon>
     </Compile>

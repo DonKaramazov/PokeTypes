@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace PokEvaluator
 {
@@ -13,6 +14,11 @@ namespace PokEvaluator
         public Element? Element2 { get; set; }
         public PokemonType PokemonType { get;  private set; }
 
+        // constructeur par défaut pour désérialisation xml
+        public Pokemon()
+        {
+
+        }
 
         public Pokemon(string name,Element mainElement,Element? secondaryElement = null)
         {
