@@ -8,8 +8,8 @@ namespace PokEvaluator
 {
     public static class Pokedex
     {
+        #region Properties
         private static List<PokemonType> _pokemonTypes = null;
-
         public static List<PokemonType> PokemonTypes
         {
             get
@@ -20,7 +20,6 @@ namespace PokEvaluator
         }
 
         private static List<Pokemon> _pokemons = null;
-
         public static List<Pokemon> Pokemons
         {
             get
@@ -28,13 +27,14 @@ namespace PokEvaluator
                 return _pokemons ?? GetAllPokemons();
             }
             set { _pokemons = value; }
-        }
+        } 
+        #endregion
 
         private static List<Pokemon> GetAllPokemons()
         {
             List<Pokemon> pokemons = new List<Pokemon>();
 
-            GetFirePokemons(pokemons);
+            pokemons.AddRange(FirePokemons.GetFirePokemons());
             GetGrassPokemons(pokemons);
             GetDragonPokemons(pokemons);
 
@@ -61,12 +61,6 @@ namespace PokEvaluator
             pokemons.Add(new Pokemon("Bulbizare", Element.GRASS));
             pokemons.Add(new Pokemon("Bulbifleure", Element.GRASS));
         }
-
-        private static void GetFirePokemons(List<Pokemon> pokemons)
-        {
-            pokemons.Add(new Pokemon("Charmander", Element.FIRE));
-        }
-
 
         private static List<PokemonType> GetAllPokemonTypes()
         {
@@ -188,9 +182,14 @@ namespace PokEvaluator
             BuildSteelAssociatedTypes(types);
         }
 
+        /// <summary>
+        /// Add steel & association types
+        /// Amount of pokemons : 37 (5,13%)
+        /// </summary>
+        /// <param name="types"></param>
         private static void BuildSteelAssociatedTypes(List<PokemonType> types)
         {
-            //fighting
+            //fighting -- 2 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.FIGHTING)
               .VulnerableTo(Element.FIGHTING, Element.FIRE, Element.GROUND)
               .ResistantTo(Element.STEEL, Element.DRAGON, Element.ICE, Element.NORMAL, Element.GRASS, Element.DARK)
@@ -198,7 +197,7 @@ namespace PokEvaluator
               .ImmuneTo(Element.POISON)
               .Build());
 
-            //dragon
+            //dragon -- 1 pokemon
             types.Add(new PokeBuilder(Element.STEEL, Element.DRAGON)
               .VulnerableTo(Element.FIGHTING, Element.GROUND)
               .ResistantTo(Element.STEEL, Element.WATER, Element.THUNDER, Element.BUG, Element.NORMAL, Element.PSY, Element.ROCK, Element.FLY)
@@ -206,7 +205,7 @@ namespace PokEvaluator
               .ImmuneTo(Element.POISON)
               .Build());
 
-            //water
+            //water -- 1 pokemon
             types.Add(new PokeBuilder(Element.STEEL, Element.WATER)
             .VulnerableTo(Element.FIGHTING, Element.GROUND, Element.THUNDER)
             .ResistantTo(Element.DRAGON, Element.WATER, Element.FAIRY, Element.BUG, Element.NORMAL, Element.PSY, Element.ROCK, Element.FLY)
@@ -214,7 +213,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON)
             .Build());
 
-            //thunder
+            //thunder -- 3 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.THUNDER)
             .SuperVulnerableTo(Element.GROUND)
             .VulnerableTo(Element.FIGHTING, Element.FIRE)
@@ -223,7 +222,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON)
             .Build());
 
-            //fairy
+            //fairy -- 2 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.FAIRY)
             .VulnerableTo(Element.FIRE, Element.GROUND)
             .ResistantTo(Element.FAIRY, Element.ICE, Element.NORMAL,Element.GRASS, Element.PSY, Element.ROCK,Element.DARK, Element.FLY)
@@ -231,7 +230,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON,Element.DRAGON)
             .Build());
 
-            //fire
+            //fire -- 1 pokemon
             types.Add(new PokeBuilder(Element.STEEL, Element.FIRE)
             .SuperVulnerableTo(Element.GROUND)
             .VulnerableTo(Element.FIGHTING,Element.WATER)
@@ -240,7 +239,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON)
             .Build());
 
-            //ice
+            //ice -- none
             types.Add(new PokeBuilder(Element.STEEL, Element.ICE)
             .SuperVulnerableTo(Element.FIGHTING,Element.FIRE)
             .VulnerableTo(Element.GROUND)
@@ -249,7 +248,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON)
             .Build());
 
-            //bug
+            //bug -- 5 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.BUG)
             .SuperVulnerableTo(Element.FIRE)
             .ResistantTo(Element.STEEL, Element.DRAGON, Element.FAIRY,Element.ICE, Element.BUG, Element.NORMAL, Element.PSY)
@@ -257,7 +256,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON)
             .Build());
 
-            //grass
+            //grass -- 2 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.GRASS)
             .SuperVulnerableTo(Element.FIRE)
             .VulnerableTo(Element.FIGHTING)
@@ -266,7 +265,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON)
             .Build());
 
-            //psy
+            //psy -- 6 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.PSY)
             .VulnerableTo(Element.FIRE, Element.GROUND,Element.GHOST,Element.DARK)
             .ResistantTo(Element.STEEL,Element.DRAGON,Element.FAIRY,Element.ICE,Element.NORMAL,Element.GRASS, Element.ROCK, Element.FLY)
@@ -274,7 +273,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON)
             .Build());
 
-            //rock
+            //rock -- 6 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.ROCK)
             .SuperVulnerableTo(Element.FIGHTING,Element.GROUND)
             .VulnerableTo(Element.WATER)
@@ -283,7 +282,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON)
             .Build());
 
-            //ground
+            //ground -- 2 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.GROUND)
             .VulnerableTo(Element.FIGHTING,Element.WATER,Element.GROUND)
             .ResistantTo(Element.STEEL, Element.DRAGON, Element.FAIRY, Element.BUG, Element.NORMAL, Element.PSY, Element.FLY)
@@ -291,15 +290,15 @@ namespace PokEvaluator
             .ImmuneTo(Element.THUNDER,Element.POISON)
             .Build());
 
-            //ghost
+            //ghost -- 3 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.DRAGON)
             .VulnerableTo(Element.FIRE, Element.GROUND,Element.GHOST,Element.GHOST)
             .ResistantTo(Element.STEEL, Element.DRAGON,Element.FAIRY,Element.ICE,Element.GRASS,Element.PSY, Element.ROCK, Element.FLY)
             .SuperResistantTo(Element.BUG)
             .ImmuneTo(Element.NORMAL,Element.POISON)
             .Build());
-
-            //dark
+        
+            //dark -- 2 pokemons
             types.Add(new PokeBuilder(Element.STEEL, Element.DARK)
             .SuperVulnerableTo(Element.FIGHTING)
             .VulnerableTo(Element.GROUND)
@@ -307,7 +306,7 @@ namespace PokEvaluator
             .ImmuneTo(Element.POISON,Element.PSY)
             .Build());
 
-            //fly
+            //fly -- 1 pokemon
             types.Add(new PokeBuilder(Element.STEEL, Element.FLY)
             .VulnerableTo(Element.THUNDER, Element.FIRE)
             .ResistantTo(Element.STEEL, Element.DRAGON, Element.FAIRY, Element.NORMAL, Element.PSY, Element.FLY)
