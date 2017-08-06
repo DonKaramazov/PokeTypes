@@ -4,58 +4,71 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PokEvaluator"
-      Title="TeamPage">
+      Title="TeamPage" Loaded="Page_Loaded" x:Name="page" >
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- First pokemon -->
-        <TextBlock Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="cbxFirstPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                  ItemsSource="{Binding Pokemons}" IsEditable="True"/>
-        <ItemsControl Name="icFirst" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  />
+            <!-- First pokemon -->
+            <TextBlock Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cbxFirstPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                  ItemsSource="{Binding ElementName=page,Path=Pokemons}" IsEditable="True"
+                   SelectedItem="{Binding FirstPokemon}" SelectedValuePath="Name"  />
+            <ItemsControl Name="icFirst" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  />
 
-        <!-- First pokemon -->
-        <TextBlock Text="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="cbxSecondPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
-                  ItemsSource="{Binding Pokemons}" IsEditable="True"/>
-        <ItemsControl Name="icSecond" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="1"  />
+            <!-- First pokemon -->
+            <TextBlock Text="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cbxSecondPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                  ItemsSource="{Binding ElementName=page,Path=Pokemons}" IsEditable="True"
+                      SelectedItem="{Binding SecondPokemon}" SelectedValuePath="Name"/>
+            <ItemsControl Name="icSecond" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="1"  />
 
-        <!-- First pokemon -->
-        <TextBlock Text="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="cbxThirdPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                  ItemsSource="{Binding Pokemons}" IsEditable="True"/>
-        <ItemsControl Name="icThird" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="2" />
+            <!-- First pokemon -->
+            <TextBlock Text="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cbxThirdPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                 ItemsSource="{Binding ElementName=page,Path=Pokemons}"  IsEditable="True"
+                      SelectedItem="{Binding ThirdPokemon}" SelectedValuePath="Name"/>
+            <ItemsControl Name="icThird" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="2" />
 
-        <!-- First pokemon -->
-        <TextBlock Text="4" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="cbxForthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"
-                  ItemsSource="{Binding Pokemons}" IsEditable="True"/>
-        <ItemsControl Name="icForth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  Grid.Row="3" />
+            <!-- First pokemon -->
+            <TextBlock Text="4" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cbxForthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"
+                  ItemsSource="{Binding ElementName=page,Path=Pokemons}"  IsEditable="True"
+                      SelectedItem="{Binding ForthPokemon}" SelectedValuePath="Name"/>
+            <ItemsControl Name="icForth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  Grid.Row="3" />
 
-        <!-- First pokemon -->
-        <TextBlock Text="5" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="cbxFifthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
-                  ItemsSource="{Binding Pokemons}" IsEditable="True"/>
-        <ItemsControl Name="icFifth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="4"  />
+            <!-- First pokemon -->
+            <TextBlock Text="5" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cbxFifthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
+                  ItemsSource="{Binding ElementName=page,Path=Pokemons}"  IsEditable="True"
+                  SelectedItem="{Binding FifthPokemon}" SelectedValuePath="Name"/>
+            <ItemsControl Name="icFifth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="4"  />
 
-        <!-- First pokemon -->
-        <TextBlock Text="6" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="cbxSixthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"
-                  ItemsSource="{Binding Pokemons}" IsEditable="True"/>
-        <ItemsControl Name="icSixth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  Grid.Row="5" />
+            <!-- First pokemon -->
+            <TextBlock Text="6" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cbxSixthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                  ItemsSource="{Binding ElementName=page,Path=Pokemons}"  IsEditable="True"
+                      SelectedItem="{Binding SixthPokemon}" SelectedValuePath="Name"/>
+            <ItemsControl Name="icSixth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  Grid.Row="5" />
+        </Grid>
 
+        <Button x:Name="btnSave" Content="Save Team" Grid.Row="1" Width="80" HorizontalAlignment="Left" Margin="10"/>
     </Grid>
 </Page>
