@@ -49,7 +49,7 @@ namespace PokEvaluator.Converters
                 case Element.WATER:
                     return "/Resources/Icons/type_eau.png";
                 case Element.FIRE:
-                    return "/Resources/Icons/type_feu.png";
+                    return "/Resources/Icons/type_fire.png";
                 case Element.GHOST:
                     return "/Resources/Icons/type_spectre.png";
                 case Element.NORMAL:

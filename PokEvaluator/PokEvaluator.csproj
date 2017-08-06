@@ -158,5 +158,8 @@
   <ItemGroup>
     <Resource Include="Resources\Icons\type_vol.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\fire.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

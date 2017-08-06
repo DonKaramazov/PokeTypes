@@ -12,9 +12,9 @@ namespace PokEvaluator
 
         public static List<PokemonType> PokemonTypes
         {
-            get 
+            get
             {
-                return _pokemonTypes ?? GetAllPokemonTypes(); 
+                return _pokemonTypes ?? GetAllPokemonTypes();
             }
             set { _pokemonTypes = value; }
         }
@@ -66,7 +66,7 @@ namespace PokEvaluator
         {
             pokemons.Add(new Pokemon("Charmander", Element.FIRE));
         }
-        
+
 
         private static List<PokemonType> GetAllPokemonTypes()
         {
@@ -185,18 +185,135 @@ namespace PokEvaluator
 
         private static void BuildAssociatedTypes(List<PokemonType> types)
         {
-            //Test bi-elements
-            PokemonType steel_fighting = new PokeBuilder(Element.STEEL, Element.FIGHTING)
-                .VulnerableTo(Element.FIGHTING, Element.FIRE, Element.GROUND)
-                .ResistantTo(Element.STEEL, Element.DRAGON, Element.ICE, Element.NORMAL, Element.GRASS, Element.DARK)
-                .SuperResistantTo(Element.BUG)
-                .ImmuneTo(Element.POISON)
-                .Build();
-
-            types.Add(steel_fighting);
+            BuildSteelAssociatedTypes(types);
         }
-        
 
+        private static void BuildSteelAssociatedTypes(List<PokemonType> types)
+        {
+            //fighting
+            types.Add(new PokeBuilder(Element.STEEL, Element.FIGHTING)
+              .VulnerableTo(Element.FIGHTING, Element.FIRE, Element.GROUND)
+              .ResistantTo(Element.STEEL, Element.DRAGON, Element.ICE, Element.NORMAL, Element.GRASS, Element.DARK)
+              .SuperResistantTo(Element.BUG)
+              .ImmuneTo(Element.POISON)
+              .Build());
 
+            //dragon
+            types.Add(new PokeBuilder(Element.STEEL, Element.DRAGON)
+              .VulnerableTo(Element.FIGHTING, Element.GROUND)
+              .ResistantTo(Element.STEEL, Element.WATER, Element.THUNDER, Element.BUG, Element.NORMAL, Element.PSY, Element.ROCK, Element.FLY)
+              .SuperResistantTo(Element.GRASS)
+              .ImmuneTo(Element.POISON)
+              .Build());
+
+            //water
+            types.Add(new PokeBuilder(Element.STEEL, Element.WATER)
+            .VulnerableTo(Element.FIGHTING, Element.GROUND, Element.THUNDER)
+            .ResistantTo(Element.DRAGON, Element.WATER, Element.FAIRY, Element.BUG, Element.NORMAL, Element.PSY, Element.ROCK, Element.FLY)
+            .SuperResistantTo(Element.STEEL, Element.ICE)
+            .ImmuneTo(Element.POISON)
+            .Build());
+
+            //thunder
+            types.Add(new PokeBuilder(Element.STEEL, Element.THUNDER)
+            .SuperVulnerableTo(Element.GROUND)
+            .VulnerableTo(Element.FIGHTING, Element.FIRE)
+            .ResistantTo(Element.DRAGON, Element.THUNDER, Element.FAIRY, Element.ICE, Element.BUG, Element.NORMAL, Element.GRASS, Element.PSY, Element.ROCK)
+            .SuperResistantTo(Element.STEEL, Element.FLY)
+            .ImmuneTo(Element.POISON)
+            .Build());
+
+            //fairy
+            types.Add(new PokeBuilder(Element.STEEL, Element.FAIRY)
+            .VulnerableTo(Element.FIRE, Element.GROUND)
+            .ResistantTo(Element.FAIRY, Element.ICE, Element.NORMAL,Element.GRASS, Element.PSY, Element.ROCK,Element.DARK, Element.FLY)
+            .SuperResistantTo(Element.BUG)
+            .ImmuneTo(Element.POISON,Element.DRAGON)
+            .Build());
+
+            //fire
+            types.Add(new PokeBuilder(Element.STEEL, Element.FIRE)
+            .SuperVulnerableTo(Element.GROUND)
+            .VulnerableTo(Element.FIGHTING,Element.WATER)
+            .ResistantTo(Element.DRAGON,Element.NORMAL, Element.PSY, Element.FLY)
+            .SuperResistantTo(Element.STEEL,Element.FAIRY,Element.ICE,Element.BUG,Element.GRASS)
+            .ImmuneTo(Element.POISON)
+            .Build());
+
+            //ice
+            types.Add(new PokeBuilder(Element.STEEL, Element.ICE)
+            .SuperVulnerableTo(Element.FIGHTING,Element.FIRE)
+            .VulnerableTo(Element.GROUND)
+            .ResistantTo(Element.DRAGON, Element.FAIRY, Element.BUG, Element.NORMAL,Element.GRASS, Element.PSY, Element.FLY)
+            .SuperResistantTo(Element.ICE)
+            .ImmuneTo(Element.POISON)
+            .Build());
+
+            //bug
+            types.Add(new PokeBuilder(Element.STEEL, Element.BUG)
+            .SuperVulnerableTo(Element.FIRE)
+            .ResistantTo(Element.STEEL, Element.DRAGON, Element.FAIRY,Element.ICE, Element.BUG, Element.NORMAL, Element.PSY)
+            .SuperResistantTo(Element.GRASS)
+            .ImmuneTo(Element.POISON)
+            .Build());
+
+            //grass
+            types.Add(new PokeBuilder(Element.STEEL, Element.GRASS)
+            .SuperVulnerableTo(Element.FIRE)
+            .VulnerableTo(Element.FIGHTING)
+            .ResistantTo(Element.STEEL,Element.DRAGON, Element.WATER, Element.THUNDER,Element.FAIRY, Element.NORMAL, Element.PSY, Element.ROCK)
+            .SuperResistantTo(Element.GRASS)
+            .ImmuneTo(Element.POISON)
+            .Build());
+
+            //psy
+            types.Add(new PokeBuilder(Element.STEEL, Element.PSY)
+            .VulnerableTo(Element.FIRE, Element.GROUND,Element.GHOST,Element.DARK)
+            .ResistantTo(Element.STEEL,Element.DRAGON,Element.FAIRY,Element.ICE,Element.NORMAL,Element.GRASS, Element.ROCK, Element.FLY)
+            .SuperResistantTo(Element.PSY)
+            .ImmuneTo(Element.POISON)
+            .Build());
+
+            //rock
+            types.Add(new PokeBuilder(Element.STEEL, Element.ROCK)
+            .SuperVulnerableTo(Element.FIGHTING,Element.GROUND)
+            .VulnerableTo(Element.WATER)
+            .ResistantTo(Element.DRAGON, Element.FAIRY, Element.ICE, Element.BUG, Element.PSY, Element.ROCK)
+            .SuperResistantTo(Element.NORMAL,Element.FLY)
+            .ImmuneTo(Element.POISON)
+            .Build());
+
+            //ground
+            types.Add(new PokeBuilder(Element.STEEL, Element.GROUND)
+            .VulnerableTo(Element.FIGHTING,Element.WATER,Element.GROUND)
+            .ResistantTo(Element.STEEL, Element.DRAGON, Element.FAIRY, Element.BUG, Element.NORMAL, Element.PSY, Element.FLY)
+            .SuperResistantTo(Element.ROCK)
+            .ImmuneTo(Element.THUNDER,Element.POISON)
+            .Build());
+
+            //ghost
+            types.Add(new PokeBuilder(Element.STEEL, Element.DRAGON)
+            .VulnerableTo(Element.FIRE, Element.GROUND,Element.GHOST,Element.GHOST)
+            .ResistantTo(Element.STEEL, Element.DRAGON,Element.FAIRY,Element.ICE,Element.GRASS,Element.PSY, Element.ROCK, Element.FLY)
+            .SuperResistantTo(Element.BUG)
+            .ImmuneTo(Element.NORMAL,Element.POISON)
+            .Build());
+
+            //dark
+            types.Add(new PokeBuilder(Element.STEEL, Element.DARK)
+            .SuperVulnerableTo(Element.FIGHTING)
+            .VulnerableTo(Element.GROUND)
+            .ResistantTo(Element.STEEL, Element.DRAGON, Element.ICE, Element.NORMAL, Element.GRASS, Element.ROCK,Element.GHOST,Element.DARK, Element.FLY)
+            .ImmuneTo(Element.POISON,Element.PSY)
+            .Build());
+
+            //fly
+            types.Add(new PokeBuilder(Element.STEEL, Element.FLY)
+            .VulnerableTo(Element.THUNDER, Element.FIRE)
+            .ResistantTo(Element.STEEL, Element.DRAGON, Element.FAIRY, Element.NORMAL, Element.PSY, Element.FLY)
+            .SuperResistantTo(Element.BUG, Element.GRASS)
+            .ImmuneTo(Element.POISON,Element.GROUND)
+            .Build());
+        }
     }
 }
