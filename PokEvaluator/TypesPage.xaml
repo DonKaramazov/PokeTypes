@@ -101,6 +101,6 @@
         </Grid>
 
 
-        <ComboBox Width="200" Height="30" DisplayMemberPath="Name" x:Name="cbxPokemons" IsEditable="True" Grid.Row="1" MaxDropDownHeight="100"/>
+        <ComboBox Style="{StaticResource ComboEditable}" DisplayMemberPath="Name" x:Name="cbxPokemons"  Grid.Row="1" />
     </Grid>
 </Page>

@@ -27,48 +27,54 @@
             </Grid.ColumnDefinitions>
 
             <!-- First pokemon -->
-            <TextBlock Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cbxFirstPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                  ItemsSource="{Binding ElementName=page,Path=Pokemons}" IsEditable="True"
-                   SelectedItem="{Binding FirstPokemon}" SelectedValuePath="Name"  />
+            <TextBlock Text="1" Style="{StaticResource TBK_POS}"/>
+            <ComboBox x:Name="cbxFirstPokemon" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                  Style="{StaticResource ComboEditable}"
+                  ItemsSource="{Binding ElementName=page,Path=Pokemons}"
+                  SelectedItem="{Binding FirstPokemon}" SelectedValuePath="Name"  />
             <ItemsControl Name="icFirst" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  />
 
             <!-- First pokemon -->
-            <TextBlock Text="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cbxSecondPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
-                  ItemsSource="{Binding ElementName=page,Path=Pokemons}" IsEditable="True"
+            <TextBlock Text="2" Grid.Row="1" Style="{StaticResource TBK_POS}"/>
+            <ComboBox x:Name="cbxSecondPokemon" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Style="{StaticResource ComboEditable}"
+                      ItemsSource="{Binding ElementName=page,Path=Pokemons}"
                       SelectedItem="{Binding SecondPokemon}" SelectedValuePath="Name"/>
             <ItemsControl Name="icSecond" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="1"  />
 
             <!-- First pokemon -->
-            <TextBlock Text="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cbxThirdPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                 ItemsSource="{Binding ElementName=page,Path=Pokemons}"  IsEditable="True"
+            <TextBlock Text="3" Grid.Row="2" Style="{StaticResource TBK_POS}"/>
+            <ComboBox x:Name="cbxThirdPokemon"  Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                      Style="{StaticResource ComboEditable}"
+                 ItemsSource="{Binding ElementName=page,Path=Pokemons}" 
                       SelectedItem="{Binding ThirdPokemon}" SelectedValuePath="Name"/>
             <ItemsControl Name="icThird" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="2" />
 
             <!-- First pokemon -->
-            <TextBlock Text="4" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cbxForthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"
-                  ItemsSource="{Binding ElementName=page,Path=Pokemons}"  IsEditable="True"
+            <TextBlock Text="4" Grid.Row="3" Style="{StaticResource TBK_POS}"/>
+            <ComboBox x:Name="cbxForthPokemon"  Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Style="{StaticResource ComboEditable}"
+                      ItemsSource="{Binding ElementName=page,Path=Pokemons}" 
                       SelectedItem="{Binding ForthPokemon}" SelectedValuePath="Name"/>
             <ItemsControl Name="icForth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  Grid.Row="3" />
 
             <!-- First pokemon -->
-            <TextBlock Text="5" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cbxFifthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
-                  ItemsSource="{Binding ElementName=page,Path=Pokemons}"  IsEditable="True"
+            <TextBlock Text="5" Grid.Row="4" Style="{StaticResource TBK_POS}"/>
+            <ComboBox x:Name="cbxFifthPokemon" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Style="{StaticResource ComboEditable}"
+                  ItemsSource="{Binding ElementName=page,Path=Pokemons}" 
                   SelectedItem="{Binding FifthPokemon}" SelectedValuePath="Name"/>
             <ItemsControl Name="icFifth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2" Grid.Row="4"  />
 
             <!-- First pokemon -->
-            <TextBlock Text="6" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cbxSixthPokemon" Width="200" Height="30" MaxDropDownHeight="100" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"
-                  ItemsSource="{Binding ElementName=page,Path=Pokemons}"  IsEditable="True"
+            <TextBlock Text="6" Grid.Row="5" Style="{StaticResource TBK_POS}"/>
+            <ComboBox x:Name="cbxSixthPokemon" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Style="{StaticResource ComboEditable}"
+                      ItemsSource="{Binding ElementName=page,Path=Pokemons}" 
                       SelectedItem="{Binding SixthPokemon}" SelectedValuePath="Name"/>
             <ItemsControl Name="icSixth" Style="{StaticResource IC_ELEMENTS}" Grid.Column="2"  Grid.Row="5" />
         </Grid>
 
-        <Button x:Name="btnSave" Content="Save Team" Grid.Row="1" Width="80" HorizontalAlignment="Left" Margin="10"/>
+        <Button x:Name="btnSave" Content="Save Team" Grid.Row="1" Width="80" HorizontalAlignment="Left" Margin="10" Cursor="Hand"/>
     </Grid>
 </Page>
