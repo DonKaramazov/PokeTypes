@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace PokEvaluator
+namespace PokEvaluator.Objects
 {
     public class Team : INotifyPropertyChanged
     {

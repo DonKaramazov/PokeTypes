@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokEvaluator", "PokEvaluato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeTest", "PokeTest\PokeTest.csproj", "{0A52B1C4-F8A5-4ACB-A2F6-B66CE210C4D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokEvaluator.Objects", "PokEvaluator.Objects\PokEvaluator.Objects.csproj", "{F1F48C5B-F02F-436C-B185-49A76AE28D63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0A52B1C4-F8A5-4ACB-A2F6-B66CE210C4D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A52B1C4-F8A5-4ACB-A2F6-B66CE210C4D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A52B1C4-F8A5-4ACB-A2F6-B66CE210C4D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F48C5B-F02F-436C-B185-49A76AE28D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F48C5B-F02F-436C-B185-49A76AE28D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F48C5B-F02F-436C-B185-49A76AE28D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F48C5B-F02F-436C-B185-49A76AE28D63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

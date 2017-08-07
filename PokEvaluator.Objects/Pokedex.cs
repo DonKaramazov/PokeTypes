@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokEvaluator
+namespace PokEvaluator.Objects
 {
     public static class Pokedex
     {

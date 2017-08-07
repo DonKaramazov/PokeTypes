@@ -54,11 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Team.cs" />
     <Compile Include="TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TeamViewModel.cs" />
+    <Compile Include="ViewModels\TeamViewModel.cs" />
     <Compile Include="TypesPage.xaml.cs">
       <DependentUpon>TypesPage.xaml</DependentUpon>
     </Compile>
@@ -71,7 +70,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\Converters.cs" />
-    <Compile Include="FirePokemons.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -89,12 +87,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PokeBuilder.cs" />
-    <Compile Include="Pokedex.cs" />
-    <Compile Include="Pokemon.cs" />
-    <Compile Include="PokemonType.cs" />
-    <Compile Include="PokemonViewModel.cs" />
-    <Compile Include="PokEnums.cs" />
+    <Compile Include="ViewModels\PokemonViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -176,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PokEvaluator.Objects\PokEvaluator.Objects.csproj">
+      <Project>{f1f48c5b-f02f-436c-b185-49a76ae28d63}</Project>
+      <Name>PokEvaluator.Objects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
