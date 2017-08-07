@@ -14,9 +14,11 @@ namespace PokEvaluator.Objects
         {
             get
             {
-                return _pokemonTypes ?? GetAllPokemonTypes();
+                if (_pokemonTypes == null)
+                    _pokemonTypes = GetAllPokemonTypes();
+
+                return _pokemonTypes;
             }
-            set { _pokemonTypes = value; }
         }
 
         private static List<Pokemon> _pokemons = null;
@@ -24,9 +26,11 @@ namespace PokEvaluator.Objects
         {
             get
             {
-                return _pokemons ?? GetAllPokemons();
+                if(_pokemons == null)
+                    _pokemons = GetAllPokemons();
+
+                return _pokemons;
             }
-            set { _pokemons = value; }
         } 
         #endregion
 
@@ -34,12 +38,10 @@ namespace PokEvaluator.Objects
         {
             List<Pokemon> pokemons = new List<Pokemon>();
 
-            pokemons.AddRange(FirePokemons.GetFirePokemons());
+            pokemons.AddRange(FirePokemons.GetAllPokemons());
+            pokemons.AddRange(SteelPokemons.GetAllPokemons());
             GetGrassPokemons(pokemons);
             GetDragonPokemons(pokemons);
-
-            //Bi-elements
-            GetSteelFightingPokemons(pokemons);
 
 
             return pokemons.OrderBy(p => p.Name).ToList();
@@ -51,10 +53,7 @@ namespace PokEvaluator.Objects
             pokemons.Add(new Pokemon("Charizard", Element.DRAGON));
         }
 
-        private static void GetSteelFightingPokemons(List<Pokemon> pokemons)
-        {
-            pokemons.Add(new Pokemon("Cobalion", Element.STEEL, Element.FIGHTING));
-        }
+      
 
         private static void GetGrassPokemons(List<Pokemon> pokemons)
         {
@@ -291,7 +290,7 @@ namespace PokEvaluator.Objects
             .Build());
 
             //ghost -- 3 pokemons
-            types.Add(new PokeBuilder(Element.STEEL, Element.DRAGON)
+            types.Add(new PokeBuilder(Element.STEEL, Element.GHOST)
             .VulnerableTo(Element.FIRE, Element.GROUND,Element.GHOST,Element.GHOST)
             .ResistantTo(Element.STEEL, Element.DRAGON,Element.FAIRY,Element.ICE,Element.GRASS,Element.PSY, Element.ROCK, Element.FLY)
             .SuperResistantTo(Element.BUG)

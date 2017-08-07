@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirePokemons.cs" />
+    <Compile Include="SteelPokemons.cs" />
+    <Compile Include="Types\FirePokemons.cs" />
     <Compile Include="PokeBuilder.cs" />
     <Compile Include="Pokedex.cs" />
     <Compile Include="Pokemon.cs" />

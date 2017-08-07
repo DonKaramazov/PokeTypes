@@ -8,7 +8,7 @@ namespace PokEvaluator.Objects
 {
     public static class FirePokemons
     {
-        public static List<Pokemon> GetFirePokemons()
+        public static List<Pokemon> GetAllPokemons()
         {
             List<Pokemon> pokemons = new List<Pokemon>();
             GetOnlyFirePokemons(pokemons);
